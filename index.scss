@@ -1,4 +1,13 @@
+$black: #000000;
+$blue: #1820EF;
+$red: #FF4E42;
+$yellow: #FFC024;
+$white: #FAFAED;
+
+$active-color: $blue;
+$primary-font-family: "M PLUS Rounded 1c", sans-serif;
+
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: $primary-font-family;
     background: url('./images/header/background-pattern.png') repeat;
 }
