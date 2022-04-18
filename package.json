@@ -9,6 +9,7 @@
     "deploy": "yarn build && surge"
   },
   "dependencies": {
+    "deasync": "^0.1.26",
     "parcel": "1.12.4",
     "surge": "^0.23.0"
   },
