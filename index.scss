@@ -6,30 +6,36 @@ $white: #FAFAED;
 
 $active-color: $blue;
 $inactive-color: $white;
-$primary-font-family: "M PLUS Rounded 1c", sans-serif;
+
+$font-family-primary: "M PLUS Rounded 1c", sans-serif;
+
+$font-color-primary: $black;
+$font-color-secondary: $white;
+
 $weight-medium: 500; 
 $weight-extra-bold: 800;
 $weight-black: 900;
 
 body {
-  font-family: $primary-font-family;
+  font-family: $font-family-primary;
 }
 
 .header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 24px 0 66px;
   background: url('./images/header/background-pattern.png') repeat;
 
   &__logo {
-    margin: 24px 0;
+    margin-bottom: 24px;
   }
   &__image {
     margin-bottom: 12px;
   }
 
   &__title {
-    font-family: $primary-font-family;
+    font-family: $font-family-primary;
     font-size: 48px;
     line-height: 56px;
     font-weight: $weight-black;
@@ -38,23 +44,121 @@ body {
     margin-bottom: 11px;
   }
   &__text {
-    margin-bottom: 66px;
-    padding: 0 30px;
-    font-family: $primary-font-family;
+    margin: 30px;
+    font-family: $font-family-primary;
     font-size: 16px;
     line-height: 20px;
     font-weight: $weight-medium;
     text-align: center;
-    color: $white;
+    color: $font-color-secondary;
 
     &--big{
-      font-family: $primary-font-family;
+      font-family: $font-family-primary;
       font-size: 120px;
       line-height: 100px;
       font-weight: $weight-black;
       text-align: center;
-      color: $white;
+      color: $font-color-secondary;
       margin-bottom: 24px;
     }
+  }
+}
+
+.selection {
+  padding: 40px 0 22px;
+  background-color: $inactive-color;
+
+  &__title {
+    font-family: $font-family-primary;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: $weight-black;
+    text-align: center;
+    color: $font-color-primary;
+    margin: 0 16px 16px;
+  }
+
+  &__subtitle {
+    font-family: $font-family-primary;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: $weight-medium;
+    text-align: center;
+    color: $font-color-primary;
+    margin: 0 16px 16px 32px;
+  }
+}
+.options {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+.card {
+  flex-shrink: 0;
+  width: 288px;
+  margin-left: 16px;
+  padding: 48px 0 40px;
+  border-radius: 11px;
+  box-shadow: 0px 4px 12px rgba(224, 219, 191, 0.6);
+
+  &:last-child {
+    margin-right: 16px;
+  }
+
+  &__image {
+    height: 104px;
+    margin-bottom: 19px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    &--salt {
+      background-image: url(./images/icons/salt/inactive.svg);
+    } 
+    &--shoyu {
+      background-image: url(./images/icons/shoyu/inactive.svg);
+    }
+    &--miso {
+      background-image: url(./images/icons/miso/inactive.svg);
+    }
+
+    &--chasu {
+      background-image: url(./images/icons/chasu/inactive.svg);
+    }
+    &--yasai_vegetarian {
+      background-image: url(./images/icons/yasai_vegetarian/inactive.svg);
+    }
+    &--karaague{
+      background-image: url(./images/icons/karaague/inactive.svg);
+    }
+  }
+  
+  &__type {
+    font-family: $font-family-primary;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: $weight-black;
+    text-align: center;
+    color: $active-color;
+    margin-bottom: 8px;
+  }
+  
+  &__description {
+    height: 32px;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: $weight-medium;
+    text-align: center;
+    color: $font-color-primary;
+    margin: 0 16px 16px;
+  }
+  
+  &__price {
+    font-family: $font-family-primary;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: $weight-black;
+    text-align: center;
+    color: $red;
   }
 }
