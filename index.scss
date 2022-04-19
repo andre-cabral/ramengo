@@ -12,49 +12,49 @@ $weight-extra-bold: 800;
 $weight-black: 900;
 
 body {
-    font-family: $primary-font-family;
+  font-family: $primary-font-family;
 }
 
 .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: url('./images/header/background-pattern.png') repeat;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: url('./images/header/background-pattern.png') repeat;
 
-    &__logo {
-        margin: 24px 0;
-    }
-    &__image {
-        margin-bottom: 12px;
-    }
+  &__logo {
+    margin: 24px 0;
+  }
+  &__image {
+    margin-bottom: 12px;
+  }
 
-    &__title {
-        font-family: $primary-font-family;
-        font-size: 48px;
-        line-height: 56px;
-        font-weight: $weight-black;
-        text-align: center;
-        color: $yellow;
-        margin-bottom: 11px;
-    }
-    &__text {
-        margin-bottom: 66px;
-        padding: 0 30px;
-        font-family: $primary-font-family;
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: $weight-medium;
-        text-align: center;
-        color: $white;
+  &__title {
+    font-family: $primary-font-family;
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: $weight-black;
+    text-align: center;
+    color: $yellow;
+    margin-bottom: 11px;
+  }
+  &__text {
+    margin-bottom: 66px;
+    padding: 0 30px;
+    font-family: $primary-font-family;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: $weight-medium;
+    text-align: center;
+    color: $white;
 
-        &--big{
-            font-family: $primary-font-family;
-            font-size: 120px;
-            line-height: 100px;
-            font-weight: $weight-black;
-            text-align: center;
-            color: $white;
-            margin-bottom: 24px;
-        }
+    &--big{
+      font-family: $primary-font-family;
+      font-size: 120px;
+      line-height: 100px;
+      font-weight: $weight-black;
+      text-align: center;
+      color: $white;
+      margin-bottom: 24px;
     }
+  }
 }
