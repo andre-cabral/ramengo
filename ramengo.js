@@ -5,8 +5,8 @@ const options = {
 
 const errorMessages = {
   missingOptionTexts: {
-    broth: 'Please select your broth option',
-    meat: 'Please select your meat option'
+    broth: 'Please select your broth option.',
+    meat: 'Please select your meat option.'
   },
   request: 'An error has occurred. Please try again.'
 }
@@ -44,9 +44,22 @@ const inactivateAllItems = (optionType, activeClass) => {
   optionsSelected[optionType] = '';
 }
 
+const showError = (text) => {
+  const errorElement = document.getElementById('error');
+  const errorTextElement = document.getElementById('error__text');
+
+  errorElement.classList.add('error--active');
+  errorTextElement.innerHTML = text;
+}
+
+const hideError = () => {
+  const element = document.getElementById('error');
+
+  element.classList.remove('error--active');
+}
+
 const missingOption = (optionType) => {
-  console.log(optionType)
-  //errorMessages.missingOptionTexts[optionType];
+  showError(errorMessages.missingOptionTexts[optionType]);
 }
 
 const checkSelectedOptions = () => {
@@ -64,6 +77,7 @@ const checkSelectedOptions = () => {
 
 const selectOption = (element, optionType) => {
   selectItem(element, optionType, 'card');
+  hideError();
 }
 
 const selectBroth = (element) => {
@@ -157,11 +171,24 @@ const newOrderButtonClicked = (element) => {
   goToOrderScreen();
 }
 
+const errorFadedOut = (event) => {
+  const element = document.getElementById('error');
+
+  element.classList.remove('error--active');
+}
+
+const errorListen = () => {
+  const element = document.getElementById('error');
+  
+  element.addEventListener("animationend", errorFadedOut, false);
+}
+
 const init = () => {
   addClickToClass('broth', selectBroth);
   addClickToClass('meat', selectMeat);
   addClickToId('order', orderButtonClicked);
   addClickToId('new-order', newOrderButtonClicked);
+  errorListen();
 }
 
 init();
