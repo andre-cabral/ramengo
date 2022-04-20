@@ -84,17 +84,43 @@ const setLoadingButton = (loading, button, value) => {
     button.classList.add('button--loading');
   } else {
     loading.classList.remove('loading--active');
-    button.classList.add('button--loading');
+    button.classList.remove('button--loading');
   }
 }
 
+const clearDoneScreen = () => {
+  const resultImageElement = document.getElementById('result__image');
+  const resultTextElement = document.getElementById('result__text');
+
+  resultImageElement.style.backgroundImage = 'none';
+  resultTextElement.innerHTML = 'data.name';
+}
+
 const goToDoneScreen = (data) => {
-  console.log(data)
   const orderWrapper = document.getElementById('order-wrapper');
   const doneWrapper = document.getElementById('done-wrapper');
 
   orderWrapper.classList.remove('wrapper--active');
   doneWrapper.classList.add('wrapper--active');
+
+
+  const resultImageElement = document.getElementById('result__image');
+  const resultTextElement = document.getElementById('result__text');
+
+  resultImageElement.style.backgroundImage = `url(${data.image})`;
+  resultTextElement.innerHTML = data.name;
+
+  window.scrollTo(0, 0);
+}
+
+const goToOrderScreen = (data) => {
+  const orderWrapper = document.getElementById('order-wrapper');
+  const doneWrapper = document.getElementById('done-wrapper');
+
+  doneWrapper.classList.remove('wrapper--active');
+  orderWrapper.classList.add('wrapper--active');
+
+  window.scrollTo(0, 0);
 }
 
 const orderButtonClicked = (element) => {
@@ -124,10 +150,18 @@ const orderButtonClicked = (element) => {
   }
 }
 
+const newOrderButtonClicked = (element) => {
+  inactivateAllItems('broth', 'card');
+  inactivateAllItems('meat', 'card');
+  clearDoneScreen();
+  goToOrderScreen();
+}
+
 const init = () => {
   addClickToClass('broth', selectBroth);
   addClickToClass('meat', selectMeat);
   addClickToId('order', orderButtonClicked);
+  addClickToId('new-order', newOrderButtonClicked);
 }
 
 init();

@@ -18,8 +18,8 @@
   <body>
     <div class="wrapper wrapper--active" id="order-wrapper">
       <header class="header">
-        <h1 class="header__logo"><img class="header__balao-azul" src="images/header/logo.png" alt="ramenGO!" /></h1>
-        <img class="header__image" src="images/header/ilustracao.png" alt="Entregadora" />
+        <h1 class="header__logo"><img src="./images/header/logo.png" alt="ramenGO!" /></h1>
+        <img class="header__image" src="./images/header/ilustracao.png" alt="Entregadora" />
         <h2 class="header__title">ラーメン</h3>
         <h2 class="header__text header__text--big">GO!</h3>
         <h3 class="header__text">Enjoy a good ramen in the comfort of your house. Create your own ramen and choose your favorite flavour combination!</h3>
@@ -84,7 +84,21 @@
     </div>
 
     <div class="wrapper" id="done-wrapper">
-      DONE
+      <header class="result">
+        <div class="result__logo"><img src="./images/done/logo.png" alt="ramenGO!" /></div>
+        <div class="result__image" id="result__image"></div>
+        <p class="result__title">Your Order:</p>
+        <p class="result__text" id="result__text">Salt and Yasai Vegetable Ramen</p>
+      </header>
+      <section class="done">
+        <img class="done__image" src="./images/done/bowing.png" />
+        <p class="done__title">どもありがとうございます。</p>
+        <p class="done__subtitle">Your order is being prepared</p>
+        <p class="done__text">Hold on, when you least expect you will be eating your rámen. </p>
+      </section>
+      <div class="container container--done">
+        <button class="button button--new-order" name="new-order" id="new-order">Place new order</button>
+      </div>
     </div>
 
     <script src="./ramengo.js"></script>
