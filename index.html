@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="wrapper" id="order">
+    <div class="wrapper wrapper--active" id="order">
       <header class="header">
         <h1 class="header__logo"><img class="header__balao-azul" src="images/header/logo.png" alt="ramenGO!" /></h1>
         <img class="header__image" src="images/header/ilustracao.png" alt="Entregadora" />
@@ -30,19 +30,19 @@
         <h3 class="selection__subtitle">It will give the whole flavor on your ramen soup.</h3>
 
         <div class="options">
-          <div class="card broth salt">
+          <div class="card broth salt" id="salt">
             <div class="card__image card__image--salt" /></div>
             <h4 class="card__type">Salt</h4>
             <p class="card__description">Simple like the seawater, nothing more</p>
             <p class="card__price">US$ 10</p>
           </div>
-          <div class="card broth shoyu">
+          <div class="card broth shoyu" id="shoyu">
             <div class="card__image card__image--shoyu" /></div>
             <h4 class="card__type">Shoyu</h4>
             <p class="card__description">The good old and traditional soy sauce</p>
             <p class="card__price">US$ 10</p>
           </div>
-          <div class="card broth miso">
+          <div class="card broth miso" id="miso">
             <div class="card__image card__image--miso" /></div>
             <h4 class="card__type">Miso</h4>
             <p class="card__description">Paste made of fermented soybeans</p>
@@ -56,19 +56,19 @@
         <h3 class="selection__subtitle">Some people love, some don’t. We have options for all tastes.</h3>
 
         <div class="options">
-          <div class="card meat chasu">
+          <div class="card meat chasu" id="chasu">
             <div class="card__image card__image--chasu" /></div>
             <h4 class="card__type">Chasu</h4>
             <p class="card__description">A sliced flavourful pork meat with a selection of season vegetables.</p>
             <p class="card__price">US$ 10</p>
           </div>
-          <div class="card meat yasai_vegetarian">
+          <div class="card meat yasai_vegetarian" id="yasai_vegetarian">
             <div class="card__image card__image--yasai_vegetarian" /></div>
             <h4 class="card__type">Yasai Vegetarian</h4>
             <p class="card__description">A delicious vegetarian lamen with a selection of season vegetables.</p>
             <p class="card__price">US$ 10</p>
           </div>
-          <div class="card meat karaague">
+          <div class="card meat karaague" id="karaague">
             <div class="card__image card__image--karaague" /></div>
             <h4 class="card__type">Karaague</h4>
             <p class="card__description">Three units of fried chicken, moyashi, ajitama egg and other vegetables.</p>
@@ -81,5 +81,11 @@
         <button class="button" name="order" id="order">Place my order</button>
       </div>
     </div>
+
+    <div class="wrapper" id="done">
+      DONE
+    </div>
+
+    <script src="./ramengo.js"></script>
   </body>
 </html>
