@@ -24,11 +24,11 @@
           <h2 class="header__title">ラーメン</h3>
           <h2 class="header__text header__text--big">GO!</h3>
           <h3 class="header__text">Enjoy a good ramen in the comfort of your house. Create your own ramen and choose your favorite flavour combination!</h3>
-          <a class="button button--header button--secondary-color" id="order-now">ORDER NOW</a>
+          <a class="button button--header button--secondary-color" id="order-now" href="#selection-start">ORDER NOW</a>
         </div>
       </header>
 
-      <section class="selection">
+      <section class="selection" id="selection-start">
         <h2 class="selection__title">First things first: select your favorite broth.</h2>
         <h3 class="selection__subtitle">It will give the whole flavor on your ramen soup.</h3>
 
@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <div class="wrapper" id="done-wrapper">
+    <div class="wrapper wrapper--done" id="done-wrapper">
       <header class="result">
         <div class="result__logo"><img src="./images/done/logo.png" alt="ramenGO!" /></div>
         <div class="result__image" id="result__image"></div>
@@ -98,10 +98,11 @@
         <p class="done__title">どもありがとうございます。</p>
         <p class="done__subtitle">Your order is being prepared</p>
         <p class="done__text">Hold on, when you least expect you will be eating your rámen. </p>
+        
+        <div class="container container--done">
+          <button class="button button--secondary-color" name="new-order" id="new-order">Place new order</button>
+        </div>
       </section>
-      <div class="container container--done">
-        <button class="button button--secondary-color" name="new-order" id="new-order">Place new order</button>
-      </div>
     </div>
 
     <div class="error" id="error">
