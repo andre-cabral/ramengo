@@ -5,6 +5,10 @@ $yellow: #FFC024;
 $white: #FAFAED;
 $grey: #C5C5C5;
 
+/* desktop breakpoint value */
+/* used the same breakpoint as bootstrap */
+$breakpoint-desktop: 992px;
+
 $color-active: $blue;
 $color-inactive: $white;
 
@@ -35,14 +39,52 @@ $weight-black: 900;
   background-image: url('./images/header/background-pattern.png');
   background-repeat: repeat;
 
+  @media (min-width: $breakpoint-desktop) {
+    position: relative;
+    padding: 38px 0 47px;
+  }
+
   &__logo {
+    width: 100%;
     margin-bottom: 24px;
+    text-align: center;
+
+    @media (min-width: $breakpoint-desktop) { 
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: auto;
+      padding: 41px 0 0 40px;
+      text-align: left;
+     }
   }
   &__image {
     margin-bottom: 12px;
+
+    @media (min-width: $breakpoint-desktop) { 
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-desktop) { 
+      box-sizing: border-box;
+      width: 834px;
+      height: 684px;
+      padding: 118px 0 109px;
+      justify-content: flex-start;
+      background-image: url(./images/header/ilustracao-desktop.png);
+      background-repeat: no-repeat;
+      background-position: center right 25px;
+    }
   }
 
   &__title {
+    width: 100%;
     font-family: $font-family-primary;
     font-size: 48px;
     line-height: 56px;
@@ -50,8 +92,14 @@ $weight-black: 900;
     text-align: center;
     color: $yellow;
     margin-bottom: 11px;
+
+    @media (min-width: $breakpoint-desktop) {
+      width: auto;
+      writing-mode: vertical-lr;
+    }
   }
   &__text {
+    width: 100%;
     margin: 30px;
     font-family: $font-family-primary;
     font-size: 16px;
@@ -60,20 +108,38 @@ $weight-black: 900;
     text-align: center;
     color: $font-color-secondary;
 
-    &--big{
+    @media (min-width: $breakpoint-desktop) { 
+      width: 200px;
+      margin: 16px 622px 0 12px;
+      line-height: 24px;
+      text-align: left;
+    }
+    
+
+    &--big {
       margin: 0 0 24px;
       font-size: 120px;
       line-height: 100px;
       font-weight: $weight-black;
+
+      @media (min-width: $breakpoint-desktop) {
+        align-self: flex-end;
+        width: auto;
+        margin: 0 0 0 8px;
+      }
     }
   }
 }
 
 .selection {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
   padding: 40px 0 22px;
   background-color: $color-inactive;
 
   &__title {
+    width: 100%;
     font-family: $font-family-primary;
     font-size: 24px;
     line-height: 31px;
@@ -84,6 +150,7 @@ $weight-black: 900;
   }
 
   &__subtitle {
+    width: 100%;
     font-family: $font-family-primary;
     font-size: 16px;
     line-height: 24px;
@@ -105,6 +172,7 @@ $weight-black: 900;
   padding: 48px 0 40px;
   border-radius: 11px;
   box-shadow: 0px 4px 12px rgba(224, 219, 191, 0.6);
+  cursor: pointer;
 
   &:last-child {
     margin-right: 16px;
@@ -236,12 +304,24 @@ $weight-black: 900;
   font-weight: $weight-black;
   text-align: center;
   color: $font-color-secondary;
+  cursor: pointer;
 
-  &--new-order {
+  &--secondary-color {
     background-color: $color-active;
     background-image: url(./images/button/arrow-yellow.png);
     background-repeat: no-repeat;
     background-position: center right 16px;
+  }
+
+  &--header {
+    display: none;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: block;
+      box-sizing: border-box;
+      height: 60px;
+      padding-right: 96px;
+    }
   }
 
   &--loading {
