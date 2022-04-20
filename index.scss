@@ -235,4 +235,41 @@ $weight-black: 900;
   &--new-order {
 
   }
+
+  &--loading {
+    color: transparent;
+    background-image: none;
+  }
+}
+
+.loading {
+  display: none;
+  position: absolute;
+  
+  &--active {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 4px;
+      border-radius: 50%;
+      border: 6px solid $font-color-secondary;
+      border-color: $font-color-secondary transparent $font-color-secondary transparent;
+      animation: loading__animation 1.2s linear infinite;
+    }
+  }
+}
+
+@keyframes loading__animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

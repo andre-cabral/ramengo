@@ -3,9 +3,12 @@ const options = {
   meat: ['chasu', 'yasai_vegetarian', 'karaague'],
 }
 
-const missingOptionTexts = {
-  broth: 'Please select your broth option',
-  meat: 'Please select your meat option'
+const errorMessages = {
+  missingOptionTexts: {
+    broth: 'Please select your broth option',
+    meat: 'Please select your meat option'
+  },
+  request: 'An error has occurred. Please try again.'
 }
 
 let optionsSelected = {
@@ -13,7 +16,12 @@ let optionsSelected = {
   meat: '',
 }
 
-const addClick = (elementClass, clickFunction) => {
+const addClickToId = (elementid, clickFunction) => {
+  const element = document.getElementById(elementid);
+  element.addEventListener('click', () => {clickFunction(element)});
+}
+
+const addClickToClass = (elementClass, clickFunction) => {
   document.querySelectorAll(`.${elementClass}`).forEach((element) => {
       element.addEventListener('click', () => {clickFunction(element)});
   });
@@ -37,13 +45,21 @@ const inactivateAllItems = (optionType, activeClass) => {
 }
 
 const missingOption = (optionType) => {
-  //missingOptionTexts[optionType];
+  console.log(optionType)
+  //errorMessages.missingOptionTexts[optionType];
 }
 
 const checkSelectedOptions = () => {
-  if(options.broth.indexOf(optionsSelected.broth) > -1) {
-
+  if(options.broth.indexOf(optionsSelected.broth) == -1) {
+    missingOption('broth');
+    return false;
   }
+  if(options.meat.indexOf(optionsSelected.meat) == -1) {
+    missingOption('meat');
+    return false;
+  }
+
+  return true;
 }
 
 const selectOption = (element, optionType) => {
@@ -62,9 +78,56 @@ const selectMeat = (element) => {
   }
 }
 
+const setLoadingButton = (loading, button, value) => {
+  if(value){
+    loading.classList.add('loading--active');
+    button.classList.add('button--loading');
+  } else {
+    loading.classList.remove('loading--active');
+    button.classList.add('button--loading');
+  }
+}
+
+const goToDoneScreen = (data) => {
+  console.log(data)
+  const orderWrapper = document.getElementById('order-wrapper');
+  const doneWrapper = document.getElementById('done-wrapper');
+
+  orderWrapper.classList.remove('wrapper--active');
+  doneWrapper.classList.add('wrapper--active');
+}
+
+const orderButtonClicked = (element) => {
+  if(checkSelectedOptions()) {
+    const loadingOrderElement = document.getElementById('order--loading');
+    const loadingOrderButton = document.getElementById('order');
+    setLoadingButton(loadingOrderElement, loadingOrderButton, true);
+
+    fetch(`https://front-br-challenges.web.app/api/v1/ramen-go/?meat=${optionsSelected.meat}&broth=${optionsSelected.broth}`)
+    .then(response => {
+      if (!response.ok) {
+        setLoadingButton(loadingOrderElement, loadingOrderButton, false);
+        throw new Error(errorMessages.request);
+      }
+
+      return response.json();
+    })
+    .then(json => {
+      setLoadingButton(loadingOrderElement, loadingOrderButton, false);
+      goToDoneScreen(json.data);
+    })
+    .catch(error => {
+      setLoadingButton(loadingOrderElement, loadingOrderButton, false);
+      console.error(errorMessages.request, error);
+    });
+
+  }
+}
+
 const init = () => {
-  addClick('broth', selectBroth);
-  addClick('meat', selectMeat);
+  addClickToClass('broth', selectBroth);
+  addClickToClass('meat', selectMeat);
+  addClickToId('order', orderButtonClicked);
 }
 
 init();
